@@ -24,6 +24,5 @@ public class SiteMember {
 
     private String password;
 
-    @Column(unique = true)
-    private String email;
+
 }

@@ -34,7 +34,7 @@ public class MemberController {
         }
         try {
             userService.create(userCreateForm.getUsername(),
-                    userCreateForm.getEmail(), userCreateForm.getPassword1());
+                     userCreateForm.getPassword1());
         }catch(DataIntegrityViolationException e) {
             e.printStackTrace();
             bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
@@ -45,10 +45,12 @@ public class MemberController {
             return "domain/home/home/join_form";
         }
 
-        return "redirect:/";
+        return "redirect:/question/list";
     }
+
     @GetMapping("/login")
     public String login() {
         return "domain/home/home/login_form";
     }
+
 }
