@@ -39,4 +39,5 @@ public class Question {
     @ManyToMany
     Set<SiteMember> voter;
 
+    private boolean isPaid; // ture : 유료회원만 볼수있는 글 false: 유료회원이 아닌 여부를 나타낸다
 }
