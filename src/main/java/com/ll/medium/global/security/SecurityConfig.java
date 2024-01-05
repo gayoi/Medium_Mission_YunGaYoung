@@ -22,8 +22,20 @@ public class SecurityConfig {
                         authorizeRequests
 //                                .requestMatchers("/member/login")
 //                                    .anonymous()
-                                .requestMatchers("/**")
-                                .permitAll()
+                                // /members/join
+                                // /members/logout
+                                .requestMatchers("/members/**")
+                                    .hasRole("MEMBER") // ROLE_MEMBER
+                                // /admin/a
+                                // /admin/b
+                                .requestMatchers("/admin/**")
+                                    .hasRole("ADMIN") // ROLE_ADMIN
+                                // /paid/aa
+                                // /paid/b
+                                .requestMatchers("/paid/**")
+                                    .hasRole("PAID")
+                                .requestMatchers("/**")// ROLE_PAID
+                                    .permitAll()
                 )
                 .headers(
                         headers ->
